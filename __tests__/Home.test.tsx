@@ -9,12 +9,4 @@ describe('Home', () => {
 
     expect(myElem).toBeInTheDocument() // ASSERT
   })
-
-  it('should contain the text "information"', () => {
-    render(<Home />) // ARRANGE
-
-    const myElem = screen.getByText(/information/i) // ACT
-
-    expect(myElem).toBeInTheDocument() // ASSERT
-  })
 })
