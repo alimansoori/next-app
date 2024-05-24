@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t alimansoori/next-app .'
+        sh 'docker build -t alimansoori/next-app:latest .'
       }
     }
 
@@ -26,6 +26,12 @@ pipeline {
       }
       steps {
         sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
+      }
+    }
+
+    stage('Push') {
+      steps {
+        sh 'docker push alimansoori/next-app:latest'
       }
     }
 
