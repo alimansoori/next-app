@@ -20,6 +20,10 @@ pipeline {
     }
 
     stage('Log into Docker Hub') {
+      environment {
+        DOCKERHUB_USERNAME = 'credentials(\'DOCKERHUB_USERNAME\')'
+        DOCKERHUB_PASSWORD = 'credentials(\'DOCKERHUB_PASSWORD\')'
+      }
       steps {
         sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
       }
